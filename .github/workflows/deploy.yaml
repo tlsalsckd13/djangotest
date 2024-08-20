@@ -38,7 +38,7 @@ jobs:
 
     steps:
     - name: Set up Kubeconfig
-      run: echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+      run: echo "${{ secrets.KUBECONFIG }}" > /root/.kube/config
 
     - name: Deploy to Kubernetes
       run: |
