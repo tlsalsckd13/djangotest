@@ -7,4 +7,4 @@ def index(request):
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'board/post_detail.html', {'post-test': post})
+    return render(request, 'board/post_detail.html', {'post-test1': post})
