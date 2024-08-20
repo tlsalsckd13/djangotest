@@ -25,12 +25,12 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t your-dockerhub-username/django-app:${{ github.sha }} .  # Docker 이미지를 빌드합니다.
+        docker build -t tlsalsckd13/djangotest:${{ github.sha }} .  # Docker 이미지를 빌드합니다.
 
     - name: Push Docker image to Docker Hub
       run: |
         echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
-        docker push your-dockerhub-username/django-app:${{ github.sha }}  # Docker 이미지를 Docker Hub에 푸시합니다.
+        docker push tlsalsckd13/djangotest:${{ github.sha }}  # Docker 이미지를 Docker Hub에 푸시합니다.
 
   deploy:
     runs-on: ubuntu-latest
