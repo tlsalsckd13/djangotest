@@ -39,6 +39,6 @@ jobs:
     steps:
     - name: Deploy to Kubernetes
       run: |
-        kubectl set image deployment/django-app django-app=your-dockerhub-username/django-app:${{ github.sha }}  # Kubernetes 배포를 업데이트합니다.
+        kubectl set image deployment/django-app django-app=tlsalsckd13/djangotest:${{ github.sha }}  # Kubernetes 배포를 업데이트합니다.
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}  # Kubernetes 클러스터에 접근하기 위해 KUBECONFIG를 설정합니다.
