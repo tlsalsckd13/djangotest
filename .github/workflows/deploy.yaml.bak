@@ -37,9 +37,8 @@ jobs:
     needs: build  # 빌드 단계가 성공적으로 완료된 후에 실행됩니다.
 
     steps:
-    - name: Set up Kubeconfig
-      run: echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-
     - name: Deploy to Kubernetes
       run: |
         kubectl set image deployment/django-app django-app=tlsalsckd13/djangotest:${{ github.sha }}  # Kubernetes 배포를 업데이트합니다.
+      env:
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}  # Kubernetes 클러스터에 접근하기 위해 KUBECONFIG를 설정합니다.
