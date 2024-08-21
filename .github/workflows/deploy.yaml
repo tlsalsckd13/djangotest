@@ -37,6 +37,13 @@ jobs:
     needs: build  # 빌드 단계가 성공적으로 완료된 후에 실행됩니다.
 
     steps:
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
     - name: Set up Kubeconfig
       run: |
         mkdir -p $HOME/.kube
